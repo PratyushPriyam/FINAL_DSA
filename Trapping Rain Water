@@ -57,3 +57,9 @@ class GFG {
         System.out.print(maxWater(arr, n));
     }
 }
+
+
+Complexity Analysis: 
+
+Time Complexity: O(N2). There are two nested loops traversing the array.
+Space Complexity: O(1). No extra space is required.
