@@ -12,3 +12,43 @@ class Solution {
         return false;
     }
 }
+
+
+
+
+ANOTHER SOLUTION. FIRST FIND THE ROW WHERE THE RANGE LIES & THEN USE BINARY SEARCH
+
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        
+        int m=matrix.length,n=matrix[0].length,row=-1;
+        for(int i=0;i<m;i++)
+        {
+            if(matrix[i][0]<=target && matrix[i][n-1]>=target)
+            {
+                row=i;
+                break;
+            }
+        }
+        if(row==-1)
+            return false;
+        //System.out.println(row);
+        int first=0,last=n-1;
+        while(first<=last)
+        {
+            int mid=last+(first-last)/2;
+            if(matrix[row][mid]==target)
+                return true;
+            else if(matrix[row][mid]<target)
+            {
+                first=mid+1;
+            }
+            else if(matrix[row][mid]>target)
+            {
+                last=mid-1;
+            }
+        }
+        return false;
+        
+    }
+}
