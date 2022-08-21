@@ -1,0 +1,24 @@
+class GfG
+{
+    public static int ifPalindrome(int num) {
+        int temp = num;
+        StringBuffer sb = new StringBuffer(Integer.toString(num));
+        sb.reverse();
+        int revNum = Integer.parseInt(sb.toString());
+        if(temp == revNum) {
+            return 1;
+        }
+        return 0;
+    }
+	public static int palinArray(int[] arr, int n)
+           {
+                  //add code here.
+                  for(int i=0; i<n; i++) {
+                      int res = ifPalindrome(arr[i]);
+                      if(res == 0) {
+                          return 0;
+                      }
+                  }
+                  return 1;
+           }
+}
