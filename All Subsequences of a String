@@ -1,0 +1,29 @@
+import java.util.Scanner;
+import java.util.TreeSet;
+
+public class subsequenceJava {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter String: ");
+        String str = sc.next();
+        String[] output = new String[1000];
+        int outputLength = subsequence(str, output);
+
+        for(int i=0; i<outputLength; i++) {
+            System.out.println(output[i]);
+        }
+    }
+
+    public static int subsequence(String str, String[] output) {
+        if(str.length() == 0) {
+            output[0] = "";
+            return 1;
+        }
+        int smallerLength = subsequence(str.substring(1), output);
+
+        for(int i=0; i<smallerLength; i++) {
+            output[i+smallerLength] = str.charAt(0) + output[i];
+        }
+        return 2*smallerLength;
+    }
+}
