@@ -1,0 +1,26 @@
+
+class Solve {
+    int[] findTwoElement(int arr[], int n) {
+        // code here
+        int[] soln = new int[2];
+        HashMap<Integer, Boolean> map = new HashMap<>();
+        
+        // Repeating.
+        for(Integer i : arr) {
+            if(map.get(i) == null) {
+                map.put(i, true);
+            }
+            else {
+                soln[0] = i;
+            }
+        }
+        
+        // Missing.
+        for(int i=1; i<=arr.length; i++) {
+            if(map.get(i) == null) {
+                soln[1] = i;
+            }
+        }
+        return soln;
+    }
+}
