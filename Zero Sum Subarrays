@@ -1,0 +1,29 @@
+
+//User function Template for Java
+
+class Solution{
+    //Function to count subarrays with sum equal to 0.
+    public static long findSubarray(long[] arr ,int n) 
+    {
+        //Your code here
+        HashMap<Long, Long> map = new HashMap<Long, Long>();
+        long sum = 0;
+        long count = 0;
+        for(int i=0; i<arr.length; i++) {
+            sum += arr[i];
+            if(sum == 0) {
+                count++;
+            }
+            if(map.containsKey(sum)) {
+                count += map.get(sum);
+                long k = map.get(sum);
+                k++;
+                map.put(sum, k);
+            }
+            else {
+                map.put(sum, 1L);
+            }
+        }
+        return count;
+    }
+}
